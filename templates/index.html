@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        {% block login_signup %}
+        {% endblock %}
+        {% block login_signup_mobile %}
+        {% endblock %}
+    {% endif %}
+
+    <div class="container">
+
+        {% if user.is_authenticated %}
+            <h2 class="greeting">
+                {{ gettext('Hello, ') }}{{ user.username }}!
+            </h2>
+        {% endif %}
+
+        <div class="form">
+        {% with message = get_flashed_messages() %}
+            {% if message %}
+                    <div class="alert alert-primary" role="alert">
+                        {{message[0]}}
+                    </div>
+                {% endif %}
+            {% endwith %}
+            <form action="/add" method="POST">
+                <input type="text" placeholder='{{ gettext('Enter a city name') }}' name="city_name" id="input-city" required>
+                <button type="submit" class="submit-button">{{ gettext('Add') }}</button>
+            </form>
+        </div>
+        <div class="cards">
+             {% if weathers %}
+                 {% for weather in weathers %}
+                <div class="card {{weather['day_state']}}">
+                    <div class="delete-wrapper">
+                        <form action="/delete/{{weather['city_id']}}" method="POST">
+                            <input type="hidden" name="id" value="">
+                            <button class="delete-button" type="submit">&#10006;</button>
+                        </form>
+                    </div>
+
+                    <div class="degrees"><span>{{weather['temp']}}<span class="celsius"> °C</span></span></div>
+                    <div class="state"><span>{{ weather['description'] }}</span></div>
+                    <div class="empty"></div>
+                    <div class="city">{{ weather['city'] }}</div>
+                </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
