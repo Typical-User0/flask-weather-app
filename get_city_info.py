@@ -6,6 +6,8 @@ import requests
 from flask import flash, redirect, url_for
 from flask_login import current_user
 
+from settings import API_KEY as api_key
+
 
 def get_info(city: str, city_id: int, user: current_user):
     
