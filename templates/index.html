@@ -12,7 +12,7 @@
 
         {% if user.is_authenticated %}
             <h2 class="greeting">
-                {{ gettext('Hello, ') }}{{ user.username }}!
+                Hello, {{ user.username }}!
             </h2>
         {% endif %}
 
@@ -25,8 +25,8 @@
                 {% endif %}
             {% endwith %}
             <form action="/add" method="POST">
-                <input type="text" placeholder='{{ gettext('Enter a city name') }}' name="city_name" id="input-city" required>
-                <button type="submit" class="submit-button">{{ gettext('Add') }}</button>
+                <input type="text" placeholder='Enter a city name' name="city_name" id="input-city" required>
+                <button type="submit" class="submit-button">Add</button>
             </form>
         </div>
         <div class="cards">

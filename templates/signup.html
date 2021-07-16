@@ -21,12 +21,12 @@
                  {% endif %}
             {% endwith %}
         <form action="/signup" method="POST" class="form-signin">
-            <h2 class="form-singin-heading">{{ gettext('Please sign up') }}</h2>
+            <h2 class="form-singin-heading">Please sign up</h2>
             {{ form.hidden_tag() }}
             {{ wtf.form_field(form.username)}}
             {{ wtf.form_field(form.password)}}
             {{ wtf.form_field(form.repeat_password)}}
-            <button class="btn btn-lg btn-primary btn-block" type="submit">{{ gettext('sign up') }}</button>
+            <button class="btn btn-lg btn-primary btn-block" type="submit">sign up</button>
         </form>
         </div>
 

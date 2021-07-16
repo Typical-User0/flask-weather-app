@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Weather App{% endblock %}</title>
     <link rel="shortcut icon" href="https://img.icons8.com/fluent/48/000000/rainy-weather.png" type="image/x-icon"/>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
@@ -17,41 +17,31 @@
             <ul>
                 <li>
                     <a href="{{ url_for('index') }}">
-                        {{ gettext("Main page") }}
+                        Main page
                     </a>
                 </li>
 
                 {% block login_signup %}
                     <li>
                         <a href="{{ url_for('login') }}">
-                            {{ gettext("Log in") }}
+                            Log in
                         </a>
                     </li>
 
                     <li>
                         <a href="{{ url_for('signup') }}">
-                            {{ gettext("Sign up") }}
+                            Sign up
                         </a>
                     </li>
                 {% endblock %}
                 {% block logout %}
                     <li>
                         <a href="{{ url_for('logout') }}">
-                            {{ gettext("Log out") }}
+                            Log out
                         </a>
                     </li>
                 {% endblock %}
             </ul>
-
-            {% block language %}
-                <a href="/lang=en" class="language-en">
-                    {{ gettext('EN') }}
-                </a>
-
-                <a href="/lang=ru" class="language-ru">
-                    {{ gettext('RU') }}
-                </a>
-            {% endblock %}
 
             <span class="menuBtn">
                 <span class="lines">
@@ -60,49 +50,36 @@
             </span>
 
         </nav>
+
         <nav class="mainMenu">
             <ul>
                 <li>
                     <a href="{{ url_for('index') }}">
-                        {{ gettext("Main page") }}
+                        Main page
                     </a>
                 </li>
 
                 {% block login_signup_mobile %}
                     <li>
                         <a href="{{ url_for('login') }}">
-                            {{ gettext("Log in") }}
+                            Log in
                         </a>
                     </li>
 
                     <li>
                         <a href="{{ url_for('signup') }}">
-                            {{ gettext("Sign up") }}
+                            Sign up
                         </a>
                     </li>
                 {% endblock %}
                 {% block logout_mobile %}
                     <li>
                         <a href="{{ url_for('logout') }}">
-                            {{ gettext("Log out") }}
+                            Log out
                         </a>
                     </li>
                 {% endblock %}
 
-                {% block language_mobile %}
-                    <li>
-                        <a href="/lang=en" class="language-en">
-                            {{ gettext('EN') }}
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="/lang=ru" class="language-ru">
-                            {{ gettext('RU') }}
-                        </a>
-                    </li>
-
-            {% endblock %}
             </ul>
 
         </nav>
@@ -119,7 +96,6 @@
 	$('.menuBtn').click(function() {
 		$(this).toggleClass('act');
 		$('.cards').toggleClass('d-none')
-		$('.my-body').toggleClass('p-fixed')
 			if($(this).hasClass('act')) {
 				$('.mainMenu').addClass('act');
 			}

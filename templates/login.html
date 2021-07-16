@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
-{% block title %}{{ gettext('Log in') }}{% endblock %}
+{% block title %}Log in{% endblock %}
 
 {% block content %}
     {% if not user.is_authenticated %}
@@ -20,12 +20,12 @@
             {% endwith %}
             <form action="/login" method="POST" class="form-signin form">
 
-                <h2 class="form-singin-heading">{{ gettext('Please Log in') }}</h2>
+                <h2 class="form-singin-heading">Please Log in</h2>
                 {{ form.hidden_tag() }}
                 {{ wtf.form_field(form.username) }}
                 {{ wtf.form_field(form.password) }}
                 {{ wtf.form_field(form.remember_me) }}
-                <button class="btn btn-lg btn-primary btn-block" type="submit">{{ gettext('login') }}</button>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">login</button>
             </form>
         </div>
     </div>

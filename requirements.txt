@@ -1,11 +1,7 @@
-flask
-json
+Flask
+SQLAlchemy
+Werkzeug
+WTForms
+pip
+setuptools
 requests
-flask_babel
-flask_sqlalchemy
-flask_wtf
-sqlalchemy
-wtforms
-flask_bootstrap
-werkzeug
-flask_login
