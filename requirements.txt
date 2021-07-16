@@ -5,3 +5,6 @@ WTForms
 pip
 setuptools
 requests
+flask_login
+flask_wtf
+flask_sqlalchemy
