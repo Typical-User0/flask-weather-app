@@ -8,8 +8,7 @@ from flask_login import current_user
 
 
 def get_info(city: str, city_id: int, user: current_user):
-    api_key = 'c5c4c63610e2803528ae1d62a7060bca'
-
+    
     # making request to the API url
     r = requests.get(
         f'https://api.openweathermap.org/data/2.5/weather?q={city}&units=metric&appid={api_key}'
