@@ -7,7 +7,7 @@ from flask_sqlalchemy import SQLAlchemy
 
 application = Flask(__name__)
 
-application.secret_key = 'jfygdjfdj'
+application.secret_key = os.getenv('SECRET_KEY')
 
 application.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///weather.db'
 
