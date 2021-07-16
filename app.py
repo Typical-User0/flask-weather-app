@@ -26,37 +26,7 @@ def index():
 
         return render_template('index.html', weathers=cities_info, user=current_user)
 
-
-@application.route('/lang=<lang>')
-def change_lang(lang):
-    user = current_user
-    if user.is_authenticated:
-        if lang != 'ru' and lang != 'en':
-            return redirect(url_for('index'))
-
-        elif user.locale == lang:
-            flash('You are already changed on this language')
-            return redirect(url_for('index'))
-
-        elif lang == 'ru' or lang == 'en':
-            user.locale = lang
-            db.session.commit()
-            cities = [city for city in City.query.filter_by(user_id=user.id)]
-            if cities:
-                for city in cities:
-                    city.name = get_info(city.name, city.id, current_user)['city']
-                try:
-                    db.session.commit()
-
-                except IntegrityError:
-                    db.session.rollback()
-                    flash("The city has already been added to the list!")
-                    return redirect(url_for('index'))
-            return redirect(url_for('index'))
-        return redirect(url_for('index'))
-    return redirect(url_for('index'))
-
-
+    
 @application.route('/login', methods=['POST', 'GET'])
 def login():
     # checking if user is logged in
