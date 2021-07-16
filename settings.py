@@ -19,3 +19,5 @@ login_manager = LoginManager()
 login_manager.login_view = 'login'
 login_manager.init_app(application)
 login_manager.login_message = None
+
+API_KEY = os.getenv('API_KEY')
