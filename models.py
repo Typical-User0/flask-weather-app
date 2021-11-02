@@ -17,7 +17,6 @@ class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.Text(60), nullable=False, unique=True)
     password = db.Column(db.Text(256), nullable=False)
-    locale = db.Column(db.Text(2), default='en')
 
     def __repr__(self):
-        return f'{self.id} - {self.username} - {self.password} - {self.locale}'
+        return f'{self.id} - {self.username} - {self.password}'
